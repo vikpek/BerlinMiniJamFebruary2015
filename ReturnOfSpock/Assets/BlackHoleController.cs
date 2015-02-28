@@ -3,39 +3,39 @@ using System.Collections;
 
 public class BlackHoleController : MonoBehaviour {
 
-	[SerializeField]
-	int blackHoleID;
+	public int previousBlackHole
+	{
+		get; set;
+	}
+
+	public int blackHoleID
+	{
+		get; set;
+	}
 
 	[SerializeField]
 	GameObject exitHole;
 
 	[SerializeField]
-	GameObject previousBlackHole;
+	GameObject risingText;
+	
+
+	void Start()
+	{
+		displayId();
+	}
 
 	void OnTriggerEnter(Collider enterprise){
-		if(previousBlackHole)
+		if(previousBlackHole == -1)
 		{
-			Debug.Log(" enterprise previous: " + enterprise.GetComponent<EnterpriseController>().lastBlackHoleID + " current " + blackHoleID + " should be previous " + previousBlackHole.GetComponent<BlackHoleController>().blackHoleID);
-			if(enterprise.GetComponent<EnterpriseController>().lastBlackHoleID == previousBlackHole.GetComponent<BlackHoleController>().blackHoleID)
+			Debug.Log(" enterprise previous: " + enterprise.GetComponent<EnterpriseController>().lastBlackHoleID + " current " + blackHoleID + " should be previous " + previousBlackHole);
+			if(enterprise.GetComponent<EnterpriseController>().lastBlackHoleID == previousBlackHole)
 			{
 				Debug.Log("normal time success");
 				success(enterprise.gameObject);
 				//TODO visual feedback for correct path
 			}else{
 				fail(enterprise.gameObject);
-//				// TODO goto some other black hole
-//				GameObject[] blackHoles =  GameObject.FindGameObjectsWithTag("BlackHole");
-//
-//				bool same = true;
-//				int nextWrongBlackHoleID = 0;
-//				while(same){
-//					nextWrongBlackHoleID = Random.Range(0, blackHoles.Length - 1);
-//					if(nextWrongBlackHoleID != nextBlackHole.GetComponent<BlackHoleController>().blackHoleID)
-//					{
-//						same = false; 
-//					}
-//				}
-//				enterprise.gameObject.transform.position = blackHoles[nextWrongBlackHoleID].transform.position;
 			}
 
 			//special case for first black hole
@@ -58,5 +58,11 @@ public class BlackHoleController : MonoBehaviour {
 	void fail (GameObject enterprise)
 	{
 		Debug.Log ("fail");
+	}
+
+	void displayId ()
+	{
+		risingText.GetComponent<RisingText> ().setup (blackHoleID);
+		Instantiate (risingText, transform.position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 	}
 }
