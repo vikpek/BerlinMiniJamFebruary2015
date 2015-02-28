@@ -6,4 +6,9 @@ public class EnterpriseController : MonoBehaviour {
 	{
 		get; set;
 	}
+
+	void Awake()
+	{
+		lastBlackHoleID = -1;
+	}
 }

@@ -49,6 +49,9 @@
      <Compile Include="Assets\BlackHoleController.cs" />
      <Compile Include="Assets\ClickMovementController.cs" />
      <Compile Include="Assets\EnterpriseController.cs" />
+     <Compile Include="Assets\RandomBlackHoleGenerator.cs" />
+     <Compile Include="Assets\RisingText.cs" />
+     <Compile Include="Assets\Rotating.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
