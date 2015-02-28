@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
+     <Compile Include="Assets\LifeController.cs" />
      <Compile Include="Assets\Scripts\BlackHoleController.cs" />
      <Compile Include="Assets\Scripts\ClickMovementController.cs" />
      <Compile Include="Assets\Scripts\EnterpriseController.cs" />

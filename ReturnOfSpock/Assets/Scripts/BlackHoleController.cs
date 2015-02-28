@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class BlackHoleController : MonoBehaviour {
 
 	GameObject spockAvatar;
+	GameObject gameController;
 
 	[SerializeField]
 	GameObject risingText;
@@ -18,8 +19,17 @@ public class BlackHoleController : MonoBehaviour {
 	[SerializeField]
 	GameObject exitHole;
 
-	void Awake()
+	void Start()
 	{
+		StartCoroutine(waitASec());
+
+		gameController = GameObject.FindGameObjectWithTag("GameController");
+
+	}
+
+	IEnumerator waitASec()
+	{
+		yield return new WaitForSeconds(1f);
 		displaySolution();
 	}
 
@@ -60,11 +70,22 @@ public class BlackHoleController : MonoBehaviour {
 		warpEffect.GetComponent<ParticleSystem>().Play();
 
 		spockAvatar = GameObject.FindGameObjectWithTag("SpockAvatar");
+
+		spockAvatar.GetComponent<Image>().overrideSprite = Resources.Load<Sprite>("Spok_0" + (blackHoleID + 1));
 		spockAvatar.GetComponent<Image>().enabled = true;
 		StartCoroutine(begToSpockGoAway());
 
+		warpEffect.GetComponent<AudioSource>().Play();
+
 
 		Debug.Log("success : " + enterprise.GetComponent<EnterpriseController>().currentId);
+
+		gameController.GetComponent<LifeController>().increaseLife();
+
+		if(blackHoleID == 8)
+		{
+			GameObject.FindGameObjectWithTag("WinScreen").GetComponent<Canvas>().enabled = true;
+		}
 	}
 
 	IEnumerator begToSpockGoAway()
@@ -80,6 +101,9 @@ public class BlackHoleController : MonoBehaviour {
 		warpEffect.transform.position = transform.position;
 		warpEffect.GetComponent<ParticleSystem>().Play();
 		Debug.Log("fail : " + enterprise.GetComponent<EnterpriseController>().currentId);
+
+		gameController.GetComponent<LifeController>().decreaseLife();
+
 	}
 
 	void displayId ()

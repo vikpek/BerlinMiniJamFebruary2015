@@ -31,7 +31,7 @@ public class RisingText : MonoBehaviour
 		int newSize = initialFontSize + 10;
 		if( newSize > maxSize ) newSize = maxSize;
 		GetComponent<TextMesh>().fontSize = newSize;
-		lifeLoss = 10f / 0.1f;
+		lifeLoss = 0.3f;
 		crdsDelta = new Vector3(0f, 1, 0f);        
 	}
 	
@@ -40,7 +40,7 @@ public class RisingText : MonoBehaviour
 		alpha = 1f;
 		cam = Camera.main;
 		crdsDelta = new Vector3(0f, 1f, 0f);
-		lifeLoss = 0.5f;
+		lifeLoss = 0.3f;
 	}
 	
 	void Update () 
