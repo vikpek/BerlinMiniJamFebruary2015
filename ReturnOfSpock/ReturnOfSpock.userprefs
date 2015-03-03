@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BlackHoleController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../GA/01_Ada/TheTruthAboutAda-repo/TruthAboutAda/Assets/Scripts/Utilities/HighScoreManager.cs">
     <Files>
-      <File FileName="Assets/LifeController.cs" Line="20" Column="3" />
-      <File FileName="Assets/Scripts/EnterpriseController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BlackHoleController.cs" Line="69" Column="23" />
+      <File FileName="../../../GA/01_Ada/TheTruthAboutAda-repo/TruthAboutAda/Assets/Scripts/Utilities/HighScoreManager.cs" Line="84" Column="3" />
+      <File FileName="../../../GA/01_Ada/TheTruthAboutAda-repo/TruthAboutAda/Assets/Scripts/Utilities/HighScoreDisplayController.cs" Line="23" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

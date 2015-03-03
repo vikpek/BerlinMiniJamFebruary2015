@@ -64,16 +64,16 @@ public class BlackHoleController : MonoBehaviour {
 
 	void success (GameObject enterprise)
 	{
+		spockAvatar = GameObject.FindGameObjectWithTag("SpockAvatar");
+
+		spockAvatar.GetComponent<Image>().enabled = true;
+		spockAvatar.GetComponent<Image>().overrideSprite = Resources.Load<Sprite>("Spok_0" + (blackHoleID + 1));
+		StartCoroutine(begToSpockGoAway());
+
 		enterprise.GetComponent<EnterpriseController>().currentId = blackHoleID;
 		GameObject warpEffect = GameObject.FindGameObjectWithTag("GoodWarp");
 		warpEffect.transform.position = transform.position;
 		warpEffect.GetComponent<ParticleSystem>().Play();
-
-		spockAvatar = GameObject.FindGameObjectWithTag("SpockAvatar");
-
-		spockAvatar.GetComponent<Image>().overrideSprite = Resources.Load<Sprite>("Spok_0" + (blackHoleID + 1));
-		spockAvatar.GetComponent<Image>().enabled = true;
-		StartCoroutine(begToSpockGoAway());
 
 		warpEffect.GetComponent<AudioSource>().Play();
 
